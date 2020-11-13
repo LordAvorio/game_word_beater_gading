@@ -59,6 +59,36 @@ function mulaiPermainan(){
     }
 }
 
+function matchWords() {
+    if(inputKata === currentWord.innerHTML) {
+        message.innerHTML = `Benar !!!`
+        return true;
+    } else {
+        message.innerHTML = '';
+        return false;
+    }
+}
 
+function showWord(words){
+    let kataAcak = Math.floor(Math.random() * words.length);
 
+    currentWord.innerHTML = words[kataAcak];
+
+}
+
+function countdown() {
+    if (time > 0){
+        time--;
+    } else if(time == 0){
+        isPlaying = false;
+    }
+    timeDisplay.innerHTML = time;
+}
+
+function checkStatus(){
+    if(!isPlaying && time == 0){
+        message.innerHTML = `Game Over !!!`
+        score = -1
+    }
+}
 
