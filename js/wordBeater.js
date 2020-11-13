@@ -7,6 +7,8 @@ let level = {
 }
 
 let currentLevel = level.mudah
+
+let time = currentLevel
 var scoreResult = 0;
 let isPlaying;
 
@@ -33,4 +35,30 @@ let words = [
     `Dissendium`,
     `Ducklifors`
 ]
+
+function init(){
+
+    seconds.innerHTML = currentLevel
+
+    showWord(words);
+
+    inputKata.addEventListener('input', mulaiPermainan)
+
+    setInterval(countdown, 1000)
+
+    setInterval(checkStatus, 50)
+}
+
+function mulaiPermainan(){
+    if(matchWords()){
+        isPlaying = true;
+        time = currentLevel+1;
+        showWord(words);
+        inputKata.value = ""
+        scoreResult++;
+    }
+}
+
+
+
 
